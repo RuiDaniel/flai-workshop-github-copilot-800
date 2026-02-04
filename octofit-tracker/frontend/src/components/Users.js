@@ -72,6 +72,7 @@ function Users() {
             <tr>
               <th scope="col">#</th>
               <th scope="col">Name</th>
+              <th scope="col">Username</th>
               <th scope="col">Email</th>
               <th scope="col">Team</th>
               <th scope="col">Total Points</th>
@@ -83,21 +84,24 @@ function Users() {
               <tr key={user.id}>
                 <td className="fw-bold text-muted">{index + 1}</td>
                 <td>
-                  <strong className="text-primary">{user.name}</strong>
+                  <strong className="text-primary">{user.name || 'N/A'}</strong>
                 </td>
-                <td className="text-muted">{user.email}</td>
+                <td className="text-dark">
+                  <code className="bg-light px-2 py-1 rounded">{user.email ? user.email.split('@')[0] : 'N/A'}</code>
+                </td>
+                <td className="text-muted">{user.email || 'N/A'}</td>
                 <td>
                   <span className="badge bg-info text-white">
-                    Team {user.team}
+                    {user.team ? `Team ${user.team}` : 'No Team'}
                   </span>
                 </td>
                 <td>
                   <span className="badge bg-success fs-6">
-                    {user.total_points} pts
+                    {user.total_points || 0} pts
                   </span>
                 </td>
                 <td className="text-muted">
-                  {new Date(user.created_at).toLocaleDateString()}
+                  {user.created_at ? new Date(user.created_at).toLocaleDateString() : 'N/A'}
                 </td>
               </tr>
             ))}
