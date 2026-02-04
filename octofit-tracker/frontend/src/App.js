@@ -22,56 +22,66 @@ function Home() {
         </p>
         <div className="row mt-4">
           <div className="col-md-4 mb-3">
-            <div className="card h-100 border-0">
-              <div className="card-body text-center">
-                <div className="display-6 mb-3">📊</div>
-                <h5 className="card-title">Activities</h5>
-                <p className="card-text text-muted">Track and view all fitness activities</p>
-                <Link to="/activities" className="btn btn-primary">View Activities</Link>
+            <Link to="/activities" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <div className="card h-100 border-0" style={{ cursor: 'pointer' }}>
+                <div className="card-body text-center">
+                  <div className="display-6 mb-3">📊</div>
+                  <h5 className="card-title">Activities</h5>
+                  <p className="card-text text-muted">Track and view all fitness activities</p>
+                  <span className="btn btn-primary">View Activities</span>
+                </div>
               </div>
-            </div>
+            </Link>
           </div>
           <div className="col-md-4 mb-3">
-            <div className="card h-100 border-0">
-              <div className="card-body text-center">
-                <div className="display-6 mb-3">🏆</div>
-                <h5 className="card-title">Leaderboard</h5>
-                <p className="card-text text-muted">See who's leading the competition</p>
-                <Link to="/leaderboard" className="btn btn-warning text-dark">View Rankings</Link>
+            <Link to="/leaderboard" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <div className="card h-100 border-0" style={{ cursor: 'pointer' }}>
+                <div className="card-body text-center">
+                  <div className="display-6 mb-3">🏆</div>
+                  <h5 className="card-title">Leaderboard</h5>
+                  <p className="card-text text-muted">See who's leading the competition</p>
+                  <span className="btn btn-warning text-dark">View Rankings</span>
+                </div>
               </div>
-            </div>
+            </Link>
           </div>
           <div className="col-md-4 mb-3">
-            <div className="card h-100 border-0">
-              <div className="card-body text-center">
-                <div className="display-6 mb-3">💪</div>
-                <h5 className="card-title">Workouts</h5>
-                <p className="card-text text-muted">Discover personalized workout plans</p>
-                <Link to="/workouts" className="btn btn-success">View Workouts</Link>
+            <Link to="/workouts" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <div className="card h-100 border-0" style={{ cursor: 'pointer' }}>
+                <div className="card-body text-center">
+                  <div className="display-6 mb-3">💪</div>
+                  <h5 className="card-title">Workouts</h5>
+                  <p className="card-text text-muted">Discover personalized workout plans</p>
+                  <span className="btn btn-success">View Workouts</span>
+                </div>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
         <div className="row mt-3">
           <div className="col-md-6 mb-3">
-            <div className="card h-100 border-0">
-              <div className="card-body text-center">
-                <div className="display-6 mb-3">👥</div>
-                <h5 className="card-title">Teams</h5>
-                <p className="card-text text-muted">View team rankings and statistics</p>
-                <Link to="/teams" className="btn btn-info text-white">View Teams</Link>
+            <Link to="/teams" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <div className="card h-100 border-0" style={{ cursor: 'pointer' }}>
+                <div className="card-body text-center">
+                  <div className="display-6 mb-3">👥</div>
+                  <h5 className="card-title">Teams</h5>
+                  <p className="card-text text-muted">View team rankings and statistics</p>
+                  <span className="btn btn-info text-white">View Teams</span>
+                </div>
               </div>
-            </div>
+            </Link>
           </div>
           <div className="col-md-6 mb-3">
-            <div className="card h-100 border-0">
-              <div className="card-body text-center">
-                <div className="display-6 mb-3">👤</div>
-                <h5 className="card-title">Users</h5>
-                <p className="card-text text-muted">Browse all registered users</p>
-                <Link to="/users" className="btn btn-secondary">View Users</Link>
+            <Link to="/users" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <div className="card h-100 border-0" style={{ cursor: 'pointer' }}>
+                <div className="card-body text-center">
+                  <div className="display-6 mb-3">👤</div>
+                  <h5 className="card-title">Users</h5>
+                  <p className="card-text text-muted">Browse all registered users</p>
+                  <span className="btn btn-secondary">View Users</span>
+                </div>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </div>
