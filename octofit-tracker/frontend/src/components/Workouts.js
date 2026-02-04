@@ -84,36 +84,36 @@ function Workouts() {
           <div key={workout.id} className="col-md-6 col-lg-4 mb-4">
             <div className="card h-100 border-0">
               <div className="card-header bg-white border-bottom-0 pt-3">
-                <h5 className="card-title mb-2">{workout.title}</h5>
+                <h5 className="card-title mb-2">{workout.title || 'Untitled Workout'}</h5>
                 <div>
                   <span className={`badge ${getDifficultyBadgeClass(workout.difficulty)} me-2`}>
-                    {workout.difficulty.toUpperCase()}
+                    {workout.difficulty ? workout.difficulty.toUpperCase() : 'N/A'}
                   </span>
                   <span className="badge bg-secondary text-capitalize">
-                    {workout.exercise_type}
+                    {workout.exercise_type || 'General'}
                   </span>
                 </div>
               </div>
               <div className="card-body">
-                <p className="card-text text-muted mb-3">{workout.description}</p>
+                <p className="card-text text-muted mb-3">{workout.description || 'No description available'}</p>
                 <hr />
                 <div className="row text-center g-2 mb-3">
                   <div className="col-6">
                     <div className="p-2 bg-light rounded">
                       <small className="text-muted d-block">Duration</small>
-                      <span className="fw-bold">{workout.duration} min</span>
+                      <span className="fw-bold">{workout.duration || 0} min</span>
                     </div>
                   </div>
                   <div className="col-6">
                     <div className="p-2 bg-light rounded">
                       <small className="text-muted d-block">Target Cal</small>
-                      <span className="fw-bold">{workout.target_calories}</span>
+                      <span className="fw-bold">{workout.target_calories || 0}</span>
                     </div>
                   </div>
                   <div className="col-12">
                     <div className="p-2 bg-primary bg-opacity-10 rounded">
                       <small className="text-muted d-block">Target Points</small>
-                      <span className="fw-bold text-primary fs-5">{workout.target_points} pts</span>
+                      <span className="fw-bold text-primary fs-5">{workout.target_points || 0} pts</span>
                     </div>
                   </div>
                 </div>
@@ -123,7 +123,7 @@ function Workouts() {
                     <i className="bi bi-list-check me-2"></i>Instructions:
                   </h6>
                   <pre className="small mb-0" style={{ whiteSpace: 'pre-wrap' }}>
-{workout.instructions}
+{workout.instructions || 'No instructions provided'}
                   </pre>
                 </div>
               </div>
