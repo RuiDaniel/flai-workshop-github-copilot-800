@@ -14,7 +14,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 class TeamViewSet(viewsets.ModelViewSet):
-    queryset = Team.objects.all()
+    queryset = Team.objects.prefetch_related('members').all()
     serializer_class = TeamSerializer
     permission_classes = [AllowAny]
 

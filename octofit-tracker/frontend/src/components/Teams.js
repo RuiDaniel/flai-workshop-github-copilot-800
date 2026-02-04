@@ -24,6 +24,7 @@ function Teams() {
         // Handle both paginated (.results) and plain array responses
         const teamsData = data.results || data;
         console.log('Teams - Processed teams:', teamsData);
+        console.log('Teams - Sample team data:', teamsData[0]);
         
         setTeams(Array.isArray(teamsData) ? teamsData : []);
         setLoading(false);
