@@ -10,44 +10,73 @@ import Workouts from './components/Workouts';
 function Home() {
   return (
     <div className="container mt-5">
-      <div className="jumbotron bg-light p-5 rounded">
+      <div className="jumbotron p-5 rounded mb-4">
         <h1 className="display-4">Welcome to OctoFit Tracker! 🏋️</h1>
         <p className="lead">
           Track your fitness journey, compete with teams, and achieve your workout goals!
         </p>
-        <hr className="my-4" />
-        <p>
+        <hr className="my-4" style={{ borderColor: 'rgba(255,255,255,0.3)' }} />
+        <p className="mb-4">
           Explore activities, check the leaderboard, view teams, manage users, and discover workout plans.
         </p>
         <div className="row mt-4">
           <div className="col-md-4 mb-3">
-            <div className="card">
+            <div className="card h-100 border-0">
               <div className="card-body text-center">
-                <h5 className="card-title">📊 Activities</h5>
-                <p className="card-text">Track and view all fitness activities</p>
+                <div className="display-6 mb-3">📊</div>
+                <h5 className="card-title">Activities</h5>
+                <p className="card-text text-muted">Track and view all fitness activities</p>
                 <Link to="/activities" className="btn btn-primary">View Activities</Link>
               </div>
             </div>
           </div>
           <div className="col-md-4 mb-3">
-            <div className="card">
+            <div className="card h-100 border-0">
               <div className="card-body text-center">
-                <h5 className="card-title">🏆 Leaderboard</h5>
-                <p className="card-text">See who's leading the competition</p>
-                <Link to="/leaderboard" className="btn btn-warning">View Rankings</Link>
+                <div className="display-6 mb-3">🏆</div>
+                <h5 className="card-title">Leaderboard</h5>
+                <p className="card-text text-muted">See who's leading the competition</p>
+                <Link to="/leaderboard" className="btn btn-warning text-dark">View Rankings</Link>
               </div>
             </div>
           </div>
           <div className="col-md-4 mb-3">
-            <div className="card">
+            <div className="card h-100 border-0">
               <div className="card-body text-center">
-                <h5 className="card-title">💪 Workouts</h5>
-                <p className="card-text">Discover personalized workout plans</p>
+                <div className="display-6 mb-3">💪</div>
+                <h5 className="card-title">Workouts</h5>
+                <p className="card-text text-muted">Discover personalized workout plans</p>
                 <Link to="/workouts" className="btn btn-success">View Workouts</Link>
               </div>
             </div>
           </div>
         </div>
+        <div className="row mt-3">
+          <div className="col-md-6 mb-3">
+            <div className="card h-100 border-0">
+              <div className="card-body text-center">
+                <div className="display-6 mb-3">👥</div>
+                <h5 className="card-title">Teams</h5>
+                <p className="card-text text-muted">View team rankings and statistics</p>
+                <Link to="/teams" className="btn btn-info text-white">View Teams</Link>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-6 mb-3">
+            <div className="card h-100 border-0">
+              <div className="card-body text-center">
+                <div className="display-6 mb-3">👤</div>
+                <h5 className="card-title">Users</h5>
+                <p className="card-text text-muted">Browse all registered users</p>
+                <Link to="/users" className="btn btn-secondary">View Users</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
       </div>
     </div>
   );

@@ -62,41 +62,51 @@ function Users() {
 
   return (
     <div className="container mt-5">
-      <h2 className="mb-4">Users</h2>
+      <div className="mb-4">
+        <h2 className="display-6">👤 Users</h2>
+        <p className="text-muted">Community members and their achievements</p>
+      </div>
       <div className="table-responsive">
-        <table className="table table-striped table-hover">
+        <table className="table table-hover align-middle">
           <thead className="table-dark">
             <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Team</th>
-              <th>Total Points</th>
-              <th>Joined</th>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Team</th>
+              <th scope="col">Total Points</th>
+              <th scope="col">Joined</th>
             </tr>
           </thead>
           <tbody>
-            {users.map((user) => (
+            {users.map((user, index) => (
               <tr key={user.id}>
-                <td><strong>{user.name}</strong></td>
-                <td>{user.email}</td>
+                <td className="fw-bold text-muted">{index + 1}</td>
                 <td>
-                  <span className="badge bg-info">
+                  <strong className="text-primary">{user.name}</strong>
+                </td>
+                <td className="text-muted">{user.email}</td>
+                <td>
+                  <span className="badge bg-info text-white">
                     Team {user.team}
                   </span>
                 </td>
                 <td>
-                  <span className="badge bg-success">
+                  <span className="badge bg-success fs-6">
                     {user.total_points} pts
                   </span>
                 </td>
-                <td>{new Date(user.created_at).toLocaleDateString()}</td>
+                <td className="text-muted">
+                  {new Date(user.created_at).toLocaleDateString()}
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
       {users.length === 0 && (
-        <div className="alert alert-info">
+        <div className="alert alert-info text-center">
+          <i className="bi bi-info-circle me-2"></i>
           No users found.
         </div>
       )}

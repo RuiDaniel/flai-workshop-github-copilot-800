@@ -1,38 +1,232 @@
+/* OctoFit Tracker Custom Styles */
+
+/* Global Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+/* Navigation Styles */
+.navbar {
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  padding: 1rem 0;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-link {
+  font-weight: 500;
+  transition: color 0.3s ease;
+  margin: 0 0.5rem;
+}
+
+.nav-link:hover {
+  color: #0dcaf0 !important;
+}
+
+/* Container Styles */
+.container {
+  flex: 1;
+}
+
+/* Card Styles */
+.card {
+  border: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 1.5rem;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+}
+
+.card-header {
+  font-weight: 600;
+  border-bottom: 2px solid rgba(0,0,0,.125);
+}
+
+.card-title {
+  margin-bottom: 0;
+}
+
+/* Table Styles */
+.table {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,.1);
+}
+
+.table thead th {
+  border-bottom: 2px solid #dee2e6;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.5px;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #f8f9fa;
+  cursor: pointer;
+}
+
+.table-responsive {
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+/* Badge Styles */
+.badge {
+  padding: 0.5rem 0.75rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+/* Button Styles */
+.btn {
+  font-weight: 500;
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,.15);
+}
+
+/* Home Page Jumbotron */
+.jumbotron {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
+  margin-bottom: 2rem;
 }
 
-.App-link {
-  color: #61dafb;
+.jumbotron h1 {
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0,0,0,.2);
 }
 
-@keyframes App-logo-spin {
+.jumbotron .card {
+  transition: transform 0.3s ease;
+}
+
+.jumbotron .card:hover {
+  transform: scale(1.05);
+}
+
+/* Loading Spinner */
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
+
+/* Alert Styles */
+.alert {
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,.1);
+}
+
+/* Heading Styles */
+h2 {
+  font-weight: 700;
+  color: #212529;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #667eea;
+  display: inline-block;
+}
+
+h5, h6 {
+  font-weight: 600;
+}
+
+/* Text Colors */
+.text-primary {
+  color: #667eea !important;
+}
+
+.bg-primary {
+  background-color: #667eea !important;
+}
+
+.table-dark {
+  background-color: #343a40 !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1.25rem;
+  }
+  
+  .nav-link {
+    margin: 0.25rem 0;
+  }
+  
+  .card {
+    margin-bottom: 1rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+}
+
+/* Utility Classes */
+.mb-4 {
+  margin-bottom: 1.5rem !important;
+}
+
+.mt-5 {
+  margin-top: 3rem !important;
+}
+
+/* Custom Animations */
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(20px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
+
+.container {
+  animation: fadeIn 0.5s ease;
+}
+
+/* Workout Instructions */
+pre {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 6px;
+  border-left: 3px solid #667eea;
+}
+
+/* Footer Spacing */
+.card-footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid rgba(0,0,0,.125);
+}
+
+/* Medal Icons for Leaderboard */
+.leaderboard-rank {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+

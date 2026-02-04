@@ -62,30 +62,36 @@ function Teams() {
 
   return (
     <div className="container mt-5">
-      <h2 className="mb-4">Teams</h2>
+      <div className="mb-4">
+        <h2 className="display-6">👥 Teams</h2>
+        <p className="text-muted">Compete together and achieve greatness</p>
+      </div>
       <div className="row">
         {teams.map((team) => (
-          <div key={team.id} className="col-md-6 mb-4">
-            <div className="card h-100">
+          <div key={team.id} className="col-md-6 col-lg-4 mb-4">
+            <div className="card h-100 border-0">
               <div className="card-header bg-primary text-white">
                 <h5 className="card-title mb-0">{team.name}</h5>
               </div>
               <div className="card-body">
-                <p className="card-text">{team.description}</p>
-                <div className="d-flex justify-content-between">
-                  <div>
-                    <h6>Total Points</h6>
-                    <p className="text-primary fs-4 fw-bold">{team.total_points}</p>
+                <p className="card-text text-muted mb-4">{team.description}</p>
+                <div className="row text-center">
+                  <div className="col-6">
+                    <div className="mb-2">
+                      <small className="text-muted d-block">Total Points</small>
+                      <span className="fs-3 fw-bold text-primary">{team.total_points}</span>
+                    </div>
                   </div>
-                  <div>
-                    <h6>Members</h6>
-                    <p className="text-secondary fs-4 fw-bold">
-                      {team.members_count || 0}
-                    </p>
+                  <div className="col-6">
+                    <div className="mb-2">
+                      <small className="text-muted d-block">Members</small>
+                      <span className="fs-3 fw-bold text-secondary">{team.members_count || 0}</span>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className="card-footer text-muted">
+              <div className="card-footer bg-light text-muted small">
+                <i className="bi bi-calendar me-1"></i>
                 Created: {new Date(team.created_at).toLocaleDateString()}
               </div>
             </div>
@@ -93,7 +99,8 @@ function Teams() {
         ))}
       </div>
       {teams.length === 0 && (
-        <div className="alert alert-info">
+        <div className="alert alert-info text-center">
+          <i className="bi bi-info-circle me-2"></i>
           No teams found.
         </div>
       )}

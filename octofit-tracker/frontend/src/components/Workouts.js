@@ -75,45 +75,55 @@ function Workouts() {
 
   return (
     <div className="container mt-5">
-      <h2 className="mb-4">Workout Plans</h2>
+      <div className="mb-4">
+        <h2 className="display-6">💪 Workout Plans</h2>
+        <p className="text-muted">Personalized workout programs for all fitness levels</p>
+      </div>
       <div className="row">
         {workouts.map((workout) => (
           <div key={workout.id} className="col-md-6 col-lg-4 mb-4">
-            <div className="card h-100">
-              <div className="card-header">
-                <h5 className="card-title mb-0">{workout.title}</h5>
-                <span className={`badge ${getDifficultyBadgeClass(workout.difficulty)}`}>
-                  {workout.difficulty}
-                </span>
+            <div className="card h-100 border-0">
+              <div className="card-header bg-white border-bottom-0 pt-3">
+                <h5 className="card-title mb-2">{workout.title}</h5>
+                <div>
+                  <span className={`badge ${getDifficultyBadgeClass(workout.difficulty)} me-2`}>
+                    {workout.difficulty.toUpperCase()}
+                  </span>
+                  <span className="badge bg-secondary text-capitalize">
+                    {workout.exercise_type}
+                  </span>
+                </div>
               </div>
               <div className="card-body">
-                <p className="card-text">{workout.description}</p>
+                <p className="card-text text-muted mb-3">{workout.description}</p>
                 <hr />
-                <div className="row text-center">
+                <div className="row text-center g-2 mb-3">
                   <div className="col-6">
-                    <small className="text-muted">Duration</small>
-                    <p className="fw-bold">{workout.duration} min</p>
+                    <div className="p-2 bg-light rounded">
+                      <small className="text-muted d-block">Duration</small>
+                      <span className="fw-bold">{workout.duration} min</span>
+                    </div>
                   </div>
                   <div className="col-6">
-                    <small className="text-muted">Type</small>
-                    <p className="fw-bold">{workout.exercise_type}</p>
+                    <div className="p-2 bg-light rounded">
+                      <small className="text-muted d-block">Target Cal</small>
+                      <span className="fw-bold">{workout.target_calories}</span>
+                    </div>
                   </div>
-                </div>
-                <div className="row text-center">
-                  <div className="col-6">
-                    <small className="text-muted">Target Calories</small>
-                    <p className="fw-bold">{workout.target_calories}</p>
-                  </div>
-                  <div className="col-6">
-                    <small className="text-muted">Target Points</small>
-                    <p className="fw-bold">{workout.target_points}</p>
+                  <div className="col-12">
+                    <div className="p-2 bg-primary bg-opacity-10 rounded">
+                      <small className="text-muted d-block">Target Points</small>
+                      <span className="fw-bold text-primary fs-5">{workout.target_points} pts</span>
+                    </div>
                   </div>
                 </div>
                 <hr />
                 <div className="mt-3">
-                  <h6>Instructions:</h6>
-                  <pre className="small" style={{ whiteSpace: 'pre-wrap' }}>
-                    {workout.instructions}
+                  <h6 className="fw-bold mb-2">
+                    <i className="bi bi-list-check me-2"></i>Instructions:
+                  </h6>
+                  <pre className="small mb-0" style={{ whiteSpace: 'pre-wrap' }}>
+{workout.instructions}
                   </pre>
                 </div>
               </div>
@@ -122,7 +132,8 @@ function Workouts() {
         ))}
       </div>
       {workouts.length === 0 && (
-        <div className="alert alert-info">
+        <div className="alert alert-info text-center">
+          <i className="bi bi-info-circle me-2"></i>
           No workouts found.
         </div>
       )}

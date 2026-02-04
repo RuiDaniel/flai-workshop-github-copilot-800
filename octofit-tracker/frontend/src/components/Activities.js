@@ -62,41 +62,47 @@ function Activities() {
 
   return (
     <div className="container mt-5">
-      <h2 className="mb-4">Activities</h2>
+      <div className="mb-4">
+        <h2 className="display-6">📊 Activities</h2>
+        <p className="text-muted">Track and monitor all fitness activities</p>
+      </div>
       <div className="table-responsive">
-        <table className="table table-striped table-hover">
+        <table className="table table-hover align-middle">
           <thead className="table-dark">
             <tr>
-              <th>User</th>
-              <th>Activity Type</th>
-              <th>Duration (min)</th>
-              <th>Distance (km)</th>
-              <th>Calories</th>
-              <th>Points</th>
-              <th>Date</th>
+              <th scope="col">#</th>
+              <th scope="col">User</th>
+              <th scope="col">Activity Type</th>
+              <th scope="col">Duration (min)</th>
+              <th scope="col">Distance (km)</th>
+              <th scope="col">Calories</th>
+              <th scope="col">Points</th>
+              <th scope="col">Date</th>
             </tr>
           </thead>
           <tbody>
-            {activities.map((activity) => (
+            {activities.map((activity, index) => (
               <tr key={activity.id}>
-                <td>{activity.user_name || activity.user}</td>
+                <td className="fw-bold text-muted">{index + 1}</td>
+                <td><strong>{activity.user_name || activity.user}</strong></td>
                 <td>
-                  <span className="badge bg-primary">
+                  <span className="badge bg-primary text-capitalize">
                     {activity.activity_type}
                   </span>
                 </td>
                 <td>{activity.duration}</td>
-                <td>{activity.distance ? activity.distance.toFixed(2) : 'N/A'}</td>
-                <td>{activity.calories}</td>
-                <td><strong>{activity.points}</strong></td>
-                <td>{new Date(activity.date).toLocaleDateString()}</td>
+                <td>{activity.distance ? activity.distance.toFixed(2) : <span className="text-muted">N/A</span>}</td>
+                <td><span className="badge bg-warning text-dark">{activity.calories} cal</span></td>
+                <td><span className="badge bg-success">{activity.points} pts</span></td>
+                <td className="text-muted">{new Date(activity.date).toLocaleDateString()}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
       {activities.length === 0 && (
-        <div className="alert alert-info">
+        <div className="alert alert-info text-center">
+          <i className="bi bi-info-circle me-2"></i>
           No activities found.
         </div>
       )}
