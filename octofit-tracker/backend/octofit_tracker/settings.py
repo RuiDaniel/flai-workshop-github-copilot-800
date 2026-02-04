@@ -108,14 +108,22 @@ WSGI_APPLICATION = 'octofit_tracker.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'octofit_db',
-        'CLIENT': {
-            'host': '127.0.0.1',
-            'port': 27017,
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# MongoDB/Djongo configuration (commented out for now)
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'djongo',
+#         'NAME': 'octofit_db',
+#         'CLIENT': {
+#             'host': '127.0.0.1',
+#             'port': 27017,
+#         }
+#     }
+# }
 
 
 # Password validation

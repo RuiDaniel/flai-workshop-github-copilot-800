@@ -88,10 +88,6 @@ function Home() {
     </div>
   );
 }
-      </div>
-    </div>
-  );
-}
 
 function App() {
   return (
