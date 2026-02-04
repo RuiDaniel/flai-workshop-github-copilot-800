@@ -34,12 +34,18 @@ class ActivitySerializer(serializers.ModelSerializer):
 class LeaderboardSerializer(serializers.ModelSerializer):
     user_name = serializers.CharField(source='user.name', read_only=True)
     team_name = serializers.CharField(source='team.name', read_only=True)
+    total_calories = serializers.SerializerMethodField()
 
     class Meta:
         model = Leaderboard
         fields = ['id', 'user', 'user_name', 'team', 'team_name', 'rank', 
-                  'points', 'activities_count', 'updated_at']
+                  'points', 'activities_count', 'total_calories', 'updated_at']
         read_only_fields = ['id', 'updated_at']
+
+    def get_total_calories(self, obj):
+        from django.db.models import Sum
+        total = obj.user.activities.aggregate(total=Sum('calories'))['total']
+        return total if total is not None else 0
 
 
 class WorkoutSerializer(serializers.ModelSerializer):

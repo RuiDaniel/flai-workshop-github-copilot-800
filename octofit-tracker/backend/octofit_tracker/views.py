@@ -26,7 +26,7 @@ class ActivityViewSet(viewsets.ModelViewSet):
 
 
 class LeaderboardViewSet(viewsets.ModelViewSet):
-    queryset = Leaderboard.objects.all()
+    queryset = Leaderboard.objects.select_related('user', 'team').all()
     serializer_class = LeaderboardSerializer
     permission_classes = [AllowAny]
 

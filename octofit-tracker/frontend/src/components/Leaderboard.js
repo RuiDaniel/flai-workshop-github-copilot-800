@@ -87,13 +87,24 @@ function Leaderboard() {
                 <h6 className="card-subtitle mb-3 text-primary fw-bold">
                   {entry.user_name || `User ${entry.user}`}
                 </h6>
-                <div className="d-flex justify-content-between align-items-center">
+                <div className="mb-3">
                   <span className="badge bg-info text-white fs-6">
-                    {entry.team_name || `Team ${entry.team}`}
+                    {entry.team_name || (entry.team ? `Team ${entry.team}` : 'N/A')}
                   </span>
-                  <span className="fs-4 fw-bold text-success">
-                    {entry.points} pts
-                  </span>
+                </div>
+                <div className="row text-center">
+                  <div className="col-6">
+                    <div className="mb-2">
+                      <small className="text-muted d-block">Points</small>
+                      <span className="fs-4 fw-bold text-success">{entry.points}</span>
+                    </div>
+                  </div>
+                  <div className="col-6">
+                    <div className="mb-2">
+                      <small className="text-muted d-block">Calories</small>
+                      <span className="fs-4 fw-bold text-warning">{entry.total_calories || 0}</span>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div className="card-footer bg-light text-muted small">
