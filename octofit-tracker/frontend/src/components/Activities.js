@@ -94,7 +94,17 @@ function Activities() {
                 <td>{activity.distance ? activity.distance.toFixed(2) : <span className="text-muted">N/A</span>}</td>
                 <td><span className="badge bg-warning text-dark">{activity.calories} cal</span></td>
                 <td><span className="badge bg-success">{activity.points} pts</span></td>
-                <td className="text-muted">{new Date(activity.date).toLocaleDateString()}</td>
+                <td className="text-muted">
+                  {activity.date ? (
+                    new Date(activity.date).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'short',
+                      day: 'numeric'
+                    })
+                  ) : (
+                    <span className="text-muted">N/A</span>
+                  )}
+                </td>
               </tr>
             ))}
           </tbody>
